@@ -1,0 +1,52 @@
+.react-final-marquee {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.react-final-marquee-wrapper {
+  width: 10000px;
+  position: absolute;
+}
+
+.react-final-marquee-wrapper[data-direction="rightToLeft"] {
+  left: 0px;
+}
+.react-final-marquee-wrapper[data-direction="leftToRight"] {
+  right: 0px;
+
+}
+
+.react-final-marquee:hover .react-final-marquee-item {
+  animation-play-state: var(--pause-on-hover);
+}
+
+.react-final-marquee-item {
+  float: left;
+  animation-play-state: var(--play);
+  animation-duration: var(--duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.react-final-marquee-wrapper[data-direction="rightToLeft"] .react-final-marquee-item {
+  transform: translateX(100%);
+  padding-right: var(--space);
+  animation-name: marqee-rightToLeft;
+}
+
+.react-final-marquee-wrapper[data-direction="leftToRight"] .react-final-marquee-item {
+  padding-left: var(--space);
+  animation-name: marqee-leftToRight;
+  float: right;
+}
+
+@keyframes marqee-rightToLeft {
+  0% { transform:translateX(0); }
+  100% { transform:translateX(-100%); }
+}
+
+@keyframes marqee-leftToRight {
+  0% { transform:translateX(0%); }
+  100% { transform:translateX(100%); }
+}
