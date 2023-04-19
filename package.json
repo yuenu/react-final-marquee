@@ -1,9 +1,29 @@
 {
   "name": "react-final-marquee",
-  "private": true,
-  "description": "The light-weight marquee for React",
-  "author": "yuenu",
+  "description": "Easy way to use marquee text for React",
+  "author": "josh-hsu  <miraiku82@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuenu/react-final-marquee/issues"
+  },
   "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuenu/react-final-marquee.git"
+  },
+  "homepage": "https://yuenu.github.io/react-final-marquee/",
+  "main": "./dist/react-final-marquee.umd.js",
+  "module": "./dist/react-final-marquee.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-final-marquee.es.js",
+      "require": "./dist/react-final-marquee.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite --config vite.demo.config.ts",
     "build:demo": "vite build --config vite.demo.config.ts && gh-pages -d demo/dist",
@@ -24,5 +44,16 @@
   "peerDependencies": {
     "react": ">= 16.8.0 || 18.0.0",
     "react-dom": ">= 16.8.0 || 18.0.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "marquee",
+    "react-component",
+    "reactjs",
+    "carousel",
+    "slider",
+    "ticker",
+    "horizontal-scrolling-carousels",
+    "react-marquee"
+  ]
 }
