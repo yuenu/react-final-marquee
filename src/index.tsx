@@ -2,6 +2,12 @@ import React, { useRef } from "react";
 import "./style.css";
 interface MarqueeProps {
   /**
+   * The height of the container div
+   * Type: number | string
+   * Default: '30px'
+   */
+  height?: number | string;
+  /**
    * Inline style for the container div
    * Type: object
    * Default: {}
@@ -43,11 +49,29 @@ interface MarqueeProps {
    * Default: 0
    */
   space?: number;
+  /**
+   * Number of repeat text
+   * Type: number
+   * Default: 2
+   */
   repeat?: number;
+  /**
+   * Text color
+   * Type: string
+   * Default: null
+   */
+  textColor?: string | null;
+  /**
+   * Container Background color
+   * Type: string
+   * Default: null
+   */
+  bgColor?: string | null;
   children?: React.ReactNode;
 }
 
 const Marquee: React.FC<MarqueeProps> = ({
+  height = "30px",
   style = {},
   className = "",
   paused = false,
@@ -56,10 +80,13 @@ const Marquee: React.FC<MarqueeProps> = ({
   duration = 2,
   space = 20,
   repeat = 2,
+  textColor = null,
+  bgColor = null,
   children,
 }) => {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeItemRef = useRef<HTMLDivElement>(null);
+  const containerHeight = typeof height === "number" ? `${height}px` : height;
 
   // useEffect(() => {
   //   if (marqueeItemRef.current && marqueeRef.current) {
@@ -68,6 +95,12 @@ const Marquee: React.FC<MarqueeProps> = ({
   //   }
   // }, []);
 
+  const containerStyles: React.CSSProperties = {
+    ["--marquee-container-height" as string]: containerHeight,
+    ["--marquee-text-color" as string]: textColor,
+    ["--marquee-background-color" as string]: bgColor,
+  };
+
   const itemStyles: React.CSSProperties = {
     ["--play" as string]: paused ? "paused" : "running",
     ["--duration" as string]: `${duration}s`,
@@ -75,15 +108,20 @@ const Marquee: React.FC<MarqueeProps> = ({
     ["--pause-on-hover" as string]: pauseOnHover ? "paused" : "running",
     ...style,
   };
+
   return (
-    <div className={`${className} react-final-marquee`} ref={marqueeRef}>
+    <div
+      className={`${className} react-final-marquee`}
+      ref={marqueeRef}
+      style={containerStyles}
+    >
       <div className="react-final-marquee-wrapper" data-direction={direction}>
         {Array.from({ length: repeat }, (_, i) => i).map((item) => (
           <div
             key={item}
             className="react-final-marquee-item"
             ref={marqueeItemRef}
-            style={{ ...itemStyles }}
+            style={itemStyles}
           >
             {children}
           </div>

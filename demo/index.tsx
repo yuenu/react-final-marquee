@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="container">
       <button onClick={() => setPaused((prev) => !prev)}>Paused</button>
-      <Marquee className="cmar" paused={paused}>???1?????</Marquee>
+      <Marquee  className="cmar" paused={paused}>???1?????</Marquee>
     </div>
   );
 };

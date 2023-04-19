@@ -3,6 +3,9 @@
   overflow: hidden;
   white-space: nowrap;
   position: relative;
+  height: var(--marquee-container-height);
+  background-color: var(--marquee-background-color);
+  color: var(----marquee-text-color);
 }
 .react-final-marquee-wrapper {
   width: 10000px;
@@ -14,7 +17,6 @@
 }
 .react-final-marquee-wrapper[data-direction="leftToRight"] {
   right: 0px;
-
 }
 
 .react-final-marquee:hover .react-final-marquee-item {
@@ -29,24 +31,34 @@
   animation-timing-function: linear;
 }
 
-.react-final-marquee-wrapper[data-direction="rightToLeft"] .react-final-marquee-item {
+.react-final-marquee-wrapper[data-direction="rightToLeft"]
+  .react-final-marquee-item {
   transform: translateX(100%);
   padding-right: var(--space);
   animation-name: marqee-rightToLeft;
 }
 
-.react-final-marquee-wrapper[data-direction="leftToRight"] .react-final-marquee-item {
+.react-final-marquee-wrapper[data-direction="leftToRight"]
+  .react-final-marquee-item {
   padding-left: var(--space);
   animation-name: marqee-leftToRight;
   float: right;
 }
 
 @keyframes marqee-rightToLeft {
-  0% { transform:translateX(0); }
-  100% { transform:translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes marqee-leftToRight {
-  0% { transform:translateX(0%); }
-  100% { transform:translateX(100%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
