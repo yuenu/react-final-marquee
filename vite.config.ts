@@ -1,6 +1,8 @@
 import path from "path";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 // import react from "@vitejs/plugin-react";
+// import typescript from "rollup-plugin-typescript2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,4 +21,5 @@ export default defineConfig({
       },
     },
   },
+  plugins: [dts({ insertTypesEntry: true })],
 });

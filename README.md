@@ -2,6 +2,15 @@
 
 Easy way to use marquee text for react
 
+## Installation
+
+```bash
+npm install react-final-marquee
+# or
+yarn add react-final-marquee
+
+```
+
 ## Demo
 
 [Here](https://yuenu.github.io/react-final-marquee/)
