@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
-import { useElementSize } from "./utils";
+import React, { useRef } from "react";
 import "./styles.css";
 interface MarqueeProps {
   /**
@@ -33,7 +32,7 @@ interface MarqueeProps {
    */
   direction?: "leftToRight" | "rightToLeft";
   /**
-   * Speed calculated as pixels/second
+   * Animation Duration
    * Type: number
    * Default: 20
    */
