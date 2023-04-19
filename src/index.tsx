@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./styles.css";
+import "./style.css";
 interface MarqueeProps {
   /**
    * Inline style for the container div

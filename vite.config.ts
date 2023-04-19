@@ -1,12 +1,11 @@
 import path from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
-// import react from "@vitejs/plugin-react";
-// import typescript from "rollup-plugin-typescript2";
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   build: {
+    cssCodeSplit: true,
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
       name: "Marquee",
@@ -21,5 +20,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [dts({ insertTypesEntry: true })],
+  plugins: [dts({ insertTypesEntry: true }), cssInjectedByJsPlugin()],
 });
