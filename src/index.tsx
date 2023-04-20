@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useElementSize, isNumeric } from "./utils";
 import "./style.css";
 interface MarqueeProps {
   /**
@@ -40,21 +41,21 @@ interface MarqueeProps {
   /**
    * Animation Duration
    * Type: number
-   * Default: 4
+   * Default: 20
    */
-  duration?: number;
+  speed?: number | string;
   /**
    * Each loop item sapces
    * Type: number
    * Default: 0
    */
-  space?: number;
+  space?: number | string;
   /**
    * Number of repeat text
    * Type: number
    * Default: 2
    */
-  repeat?: number;
+  repeat?: number | number;
   /**
    * Text color
    * Type: string
@@ -77,26 +78,32 @@ const Marquee: React.FC<MarqueeProps> = ({
   paused = false,
   pauseOnHover = true,
   direction = "rightToLeft",
-  duration = 4,
+  speed = 20,
   space = 0,
   repeat = 2,
   textColor = null,
   bgColor = null,
   children,
 }) => {
+  const [duration, setDuration] = useState(2);
+  const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
-  const marqueeItemRef = useRef<HTMLDivElement>(null);
-  const containerHeight = typeof height === "number" ? `${height}px` : height;
+  const { width: containerWidth } = useElementSize(containerRef);
+  const { width: marqueeWidth } = useElementSize(marqueeRef);
 
-  // useEffect(() => {
-  //   if (marqueeItemRef.current && marqueeRef.current) {
-  //     const itemWidth = marqueeItemRef.current.getClientRects()[0].width;
-  //     const parentWidth = marqueeRef.current.getClientRects()[0].width;
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (marqueeWidth !== undefined && containerWidth !== undefined) {
+      const nubmerSpeed = +speed
+      setDuration(
+        (marqueeWidth < containerWidth
+          ? containerWidth / nubmerSpeed
+          : marqueeWidth / nubmerSpeed) * 0.2
+      );
+    }
+  }, [marqueeWidth, containerWidth]);
 
   const containerStyles: React.CSSProperties = {
-    ["--marquee-container-height" as string]: containerHeight,
+    ["--marquee-container-height" as string]: isNumeric(height) ? `${height}px` : height,
     ["--marquee-text-color" as string]: textColor,
     ["--marquee-background-color" as string]: bgColor,
   };
@@ -104,7 +111,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   const itemStyles: React.CSSProperties = {
     ["--play" as string]: paused ? "paused" : "running",
     ["--duration" as string]: `${duration}s`,
-    ["--space" as string]: `${space}px`,
+    ["--space" as string]: isNumeric(space) ? `${space}px` : space,
     ["--pause-on-hover" as string]: pauseOnHover ? "paused" : "running",
     ...style,
   };
@@ -112,16 +119,16 @@ const Marquee: React.FC<MarqueeProps> = ({
   return (
     <div
       className={`${className} react-final-marquee`}
-      ref={marqueeRef}
+      ref={containerRef}
       style={containerStyles}
     >
       <div className="marquee-wrapper">
         <div className="react-final-marquee-wrapper" data-direction={direction}>
-          {Array.from({ length: repeat }, (_, i) => i).map((item) => (
+          {Array.from({ length: +repeat }, (_, i) => i).map((item) => (
             <div
               key={item}
               className="react-final-marquee-item"
-              ref={marqueeItemRef}
+              ref={marqueeRef}
               style={itemStyles}
             >
               {children}

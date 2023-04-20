@@ -19,7 +19,6 @@ yarn add react-final-marquee
 
 - [ ] Vertical marquee
 - [ ] Add test case
-- [ ] It can maintain the same speed regardless of the width.
 - [ ] Stay at the same speed even when you resize the window
 
 ## Usage
@@ -39,13 +38,13 @@ import Marquee from "react-final-marquee";
 | Prop         | Type             | Default                        | Description                                                       |
 | ------------ | ---------------- | ------------------------------ | ----------------------------------------------------------------- |
 | height       | Number or String | 15                             | The height of the container div                                   |
-| style        | CSSProperties    | 15                             | Animation Duration                                                |
+| style        | CSSProperties    | 15                             | Inline style for the container div                                |
 | className    | String           | ""                             | Class name to style the container div                             |
 | paused       | Boolean          | false                          | The property specifies whether the animation is running or paused |
 | pauseOnHover | Boolean          | false                          | Whether to pause the marquee when hovered                         |
 | direction    | String           | "leftToRight" or "rightToLeft" | The direction the marquee is sliding                              |
-| duration     | Number           | 4                              | Animation Duration                                                |
-| space        | Number           | 0                              | Each loop item sapces                                             |
-| repeat       | Number           | 2                              | Number of repeat text                                             |
+| seeed        | Number or String | 15                             | Speed calculated as pixels/second                                 |
+| space        | Number or String | 0                              | Each loop item sapces                                             |
+| repeat       | Number or String | 2                              | Number of repeat text                                             |
 | textColor    | String or null   | null                           | Text color                                                        |
 | bgColor      | String or null   | null                           | Container Background color                                        |

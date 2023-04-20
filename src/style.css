@@ -1,5 +1,4 @@
 .react-final-marquee {
-  height: 100%;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -8,8 +7,8 @@
   color: var(----marquee-text-color);
 }
 .react-final-marquee-wrapper {
-  width: 10000px;
   position: absolute;
+  display: flex;
 }
 
 .react-final-marquee-wrapper[data-direction="rightToLeft"] {

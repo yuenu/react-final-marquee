@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 
-
 export function useResize(callback: () => void): void {
   const callbackRef = useRef(callback);
 
@@ -44,20 +43,11 @@ export function useElementSize(element: React.RefObject<HTMLDivElement>): {
   return { width, height };
 }
 
-// export function getTextWidth(text: string, font?: string) {
-//   const canvas = document.createElement("canvas");
-//   const context = canvas.getContext("2d") as CanvasRenderingContext2D;
-//   context.font = font || getComputedStyle(document.body).font;
-//   return context.measureText(text).width;
-// }
+export function isNumeric(value: string | number) {
+  return /^-?\d+$/.test(value + '');
+}
 
-// export function parseHTMLText(htmlString: string) {
-//   let text = "";
-//   const resultHtml = new DOMParser().parseFromString(htmlString, "text/html");
-//   // resultHtml.querySelectorAll('body *').forEach((node) => {
-//   //   if(node.childNodes.length < 2) text += node.innerText;
-//   // });
-//   text = resultHtml.body.innerText;
-//   const textWidth = getTextWidth(text);
-//   return { text, textWidth };
+// export function is(value: unknown) {
+//   if (typeof value === "number") return value;
+//   if (typeof value === "string" && isNumeric(value)) return +value;
 // }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import Marquee from "../src";
 import "./styles.css";
@@ -21,8 +21,6 @@ const Header = () => {
 };
 
 const Demo = () => {
-  const [paused, setPaused] = useState(false);
-
   return (
     <section className="demo">
       <div>
@@ -43,42 +41,22 @@ const Demo = () => {
       </div>
       <hr />
       <div>
-        <h3 className="demo-title">duration: 10</h3>
-        <Marquee duration={10}>
+        <h3 className="demo-title">sapce: 40</h3>
+        <Marquee speed="40">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </Marquee>
       </div>
       <hr />
       <div>
-        <h3 className="demo-title">sapce: 20</h3>
-        <Marquee space={20}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </Marquee>
+        <h3 className="demo-title">Short text - repeat: 5</h3>
+        <Marquee repeat={5}>Lorem Ipsum</Marquee>
       </div>
       <hr />
       <div>
-        <h3 className="demo-title">Default settings - Short text</h3>
-        <Marquee space={20}>
-          Lorem Ipsum
-        </Marquee>
+        <h3 className="demo-title">Short text repeat: 12</h3>
+        <Marquee repeat={12}>Lorem Ipsum</Marquee>
       </div>
-      <hr />
-      <div>
-        <h3 className="demo-title">repeat: 5 - Short text</h3>
-        <Marquee repeat={5}>
-          Lorem Ipsum
-        </Marquee>
-      </div>
-      <hr />
-      <div>
-        <h3 className="demo-title">repeat: 12 - Short text</h3>
-        <Marquee repeat={12}>
-          Lorem Ipsum
-        </Marquee>
-      </div>
-      
     </section>
   );
 };
