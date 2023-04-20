@@ -44,7 +44,7 @@ import Marquee from "react-final-marquee";
 | paused       | Boolean          | false                          | The property specifies whether the animation is running or paused |
 | pauseOnHover | Boolean          | false                          | Whether to pause the marquee when hovered                         |
 | direction    | String           | "leftToRight" or "rightToLeft" | The direction the marquee is sliding                              |
-| duration     | Number           | 0                              | Animation Duration                                                |
+| duration     | Number           | 4                              | Animation Duration                                                |
 | space        | Number           | 0                              | Each loop item sapces                                             |
 | repeat       | Number           | 2                              | Number of repeat text                                             |
 | textColor    | String or null   | null                           | Text color                                                        |

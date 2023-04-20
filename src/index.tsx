@@ -40,7 +40,7 @@ interface MarqueeProps {
   /**
    * Animation Duration
    * Type: number
-   * Default: 20
+   * Default: 4
    */
   duration?: number;
   /**
@@ -76,9 +76,9 @@ const Marquee: React.FC<MarqueeProps> = ({
   className = "",
   paused = false,
   pauseOnHover = true,
-  direction = "leftToRight",
-  duration = 2,
-  space = 20,
+  direction = "rightToLeft",
+  duration = 4,
+  space = 0,
   repeat = 2,
   textColor = null,
   bgColor = null,
@@ -115,17 +115,19 @@ const Marquee: React.FC<MarqueeProps> = ({
       ref={marqueeRef}
       style={containerStyles}
     >
-      <div className="react-final-marquee-wrapper" data-direction={direction}>
-        {Array.from({ length: repeat }, (_, i) => i).map((item) => (
-          <div
-            key={item}
-            className="react-final-marquee-item"
-            ref={marqueeItemRef}
-            style={itemStyles}
-          >
-            {children}
-          </div>
-        ))}
+      <div className="marquee-wrapper">
+        <div className="react-final-marquee-wrapper" data-direction={direction}>
+          {Array.from({ length: repeat }, (_, i) => i).map((item) => (
+            <div
+              key={item}
+              className="react-final-marquee-item"
+              ref={marqueeItemRef}
+              style={itemStyles}
+            >
+              {children}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
