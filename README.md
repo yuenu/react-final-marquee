@@ -15,9 +15,24 @@ yarn add react-final-marquee
 
 [Here](https://yuenu.github.io/react-final-marquee/)
 
+## Continued development
+
+- [ ] Vertical marquee
+- [ ] Add test case
+- [ ] It can maintain the same speed regardless of the width.
+- [ ] Stay at the same speed even when you resize the window
+
 ## Usage
 
-TODO:
+```js
+import Marquee from "react-final-marquee";
+
+<div>
+  <Marquee>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  </Marquee>
+</div>;
+```
 
 ## Props
 
