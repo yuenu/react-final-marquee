@@ -39,16 +39,16 @@ import Marquee from "react-final-marquee";
 
 ## Props
 
-| Prop         | Type                | Default                       | Description                                                       |
-| ------------ | ------------------- | ----------------------------- | ----------------------------------------------------------------- |
-| height       | `Number` / `String` | `30px`                        | The height of the container div                                   |
-| style        | `CSSProperties`     | `{}`                          | Inline style for the container div                                |
-| className    | `String`            | `""`                          | Class name to style the container div                             |
-| paused       | `Boolean`           | `false`                       | The property specifies whether the animation is running or paused |
-| pauseOnHover | `Boolean`           | `false`                       | Whether to pause the marquee when hovered                         |
-| direction    | `String`            | `leftToRight` / `rightToLeft` | The direction the marquee is sliding                              |
-| seeed        | `Number` / `String` | `15`                          | Speed calculated as pixels/second                                 |
-| space        | `Number` / `String` | `0`                           | Each loop item sapces                                             |
-| repeat       | `Number` / `String` | `2`                           | Number of repeat text                                             |
-| textColor    | `String` / `null`   | `null`                        | Text color                                                        |
-| bgColor      | `String` /`null`    | `null`                        | Container Background color                                        |
+| Prop         | Type                          | Default       | Description                                                       |
+| ------------ | ----------------------------- | ------------- | ----------------------------------------------------------------- |
+| height       | `Number` / `String`           | `30px`        | The height of the container div                                   |
+| style        | `CSSProperties`               | `{}`          | Inline style for the container div                                |
+| className    | `String`                      | `""`          | Class name to style the container div                             |
+| paused       | `Boolean`                     | `false`       | The property specifies whether the animation is running or paused |
+| pauseOnHover | `Boolean`                     | `true`        | Whether to pause the marquee when hovered                         |
+| direction    | `leftToRight` / `rightToLeft` | `rightToLeft` | The direction the marquee is sliding                              |
+| seeed        | `Number` / `String`           | `20`          | Speed calculated as pixels/second                                 |
+| space        | `Number` / `String`           | `0`           | Each loop item sapces                                             |
+| repeat       | `Number` / `String`           | `2`           | Number of repeat text                                             |
+| textColor    | `String` / `null`             | `null`        | Text color                                                        |
+| bgColor      | `String` /`null`              | `null`        | Container Background color                                        |
