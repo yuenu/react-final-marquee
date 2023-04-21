@@ -99,6 +99,7 @@ const CustomerControl = () => {
   const [text, setText] = useState("This is short test message");
   const [bgColor, setBgColor] = useState("#eee");
   const [textColor, setTextColor] = useState("#333");
+  const [position, setPosition] = useState<"top" | "center" | "bottom">("top");
 
   const [isChange, setIsChange] = useState(false);
 
@@ -211,6 +212,27 @@ const CustomerControl = () => {
             defaultValue={textColor}
           />
         </label>
+        <label>
+          Position (default: 'top'): {String(position)}
+          <button
+            className={position === "top" ? "active" : ""}
+            onClick={() => setPosition("top")}
+          >
+            top
+          </button>
+          <button
+            className={position === "center" ? "active" : ""}
+            onClick={() => setPosition("center")}
+          >
+            center
+          </button>
+          <button
+            className={position === "bottom" ? "active" : ""}
+            onClick={() => setPosition("bottom")}
+          >
+            bottom
+          </button>
+        </label>
       </div>
       <div className="showcase">
         {isChange ? null : (
@@ -224,6 +246,7 @@ const CustomerControl = () => {
             repeat={repeat}
             bgColor={bgColor}
             textColor={textColor}
+            position={position}
           >
             <Tag>{text}</Tag>
           </Marquee>

@@ -34,7 +34,7 @@ import Marquee from "react-final-marquee";
   <Marquee>
     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   </Marquee>
-</div>;
+</div>
 ```
 
 ## Props
@@ -52,3 +52,4 @@ import Marquee from "react-final-marquee";
 | repeat       | `Number` / `String`           | `2`           | Number of repeat text                                             |
 | textColor    | `String` / `null`             | `null`        | Text color                                                        |
 | bgColor      | `String` /`null`              | `null`        | Container Background color                                        |
+| position     | `top` /`center` / `bottom`    | `top`         | Marquee position                                                  |

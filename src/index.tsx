@@ -68,6 +68,12 @@ interface MarqueeProps {
    * Default: null
    */
   bgColor?: string | null;
+  /**
+   * Container Background color
+   * Type: string
+   * Default: null
+   */
+  position?: "top" | "center" | "bottom";
   children?: React.ReactNode;
 }
 
@@ -83,6 +89,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   repeat = 2,
   textColor = null,
   bgColor = null,
+  position = "top",
   children,
 }) => {
   const [duration, setDuration] = useState(0);
@@ -93,7 +100,7 @@ const Marquee: React.FC<MarqueeProps> = ({
 
   useEffect(() => {
     if (marqueeWidth !== undefined && containerWidth !== undefined) {
-      const nubmerSpeed = +speed ;
+      const nubmerSpeed = +speed;
       setDuration(
         (marqueeWidth < containerWidth
           ? containerWidth / nubmerSpeed
@@ -128,19 +135,21 @@ const Marquee: React.FC<MarqueeProps> = ({
       ref={containerRef}
       style={containerStyles}
     >
-      <div className="marquee-wrapper">
-        <div className="react-final-marquee-wrapper" data-direction={direction}>
-          {Array.from({ length: +repeat }, (_, i) => i).map((item) => (
-            <div
-              key={item}
-              className="react-final-marquee-item"
-              ref={marqueeRef}
-              style={itemStyles}
-            >
-              {children}
-            </div>
-          ))}
-        </div>
+      <div
+        className="react-final-marquee-wrapper"
+        data-direction={direction}
+        data-position={position}
+      >
+        {Array.from({ length: +repeat }, (_, i) => i).map((item) => (
+          <div
+            key={item}
+            className="react-final-marquee-item"
+            ref={marqueeRef}
+            style={itemStyles}
+          >
+            {children}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -11,25 +11,7 @@
 .react-final-marquee-wrapper {
   position: absolute;
   display: flex;
-}
-
-.react-final-marquee-wrapper[data-direction="rightToLeft"] {
-  left: 0px;
-}
-.react-final-marquee-wrapper[data-direction="leftToRight"] {
-  right: 0px;
-}
-
-.react-final-marquee:hover .react-final-marquee-item {
-  animation-play-state: var(--pause-on-hover);
-}
-
-.react-final-marquee-item {
-  float: left;
-  animation-play-state: var(--play);
-  animation-duration: var(--duration);
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  align-items: center;
 }
 
 .react-final-marquee-wrapper[data-direction="rightToLeft"]
@@ -44,6 +26,38 @@
   float: right;
   padding-left: var(--space);
   animation-name: marqee-leftToRight;
+}
+
+.react-final-marquee-wrapper[data-direction="rightToLeft"] {
+  left: 0px;
+}
+.react-final-marquee-wrapper[data-direction="leftToRight"] {
+  right: 0px;
+}
+
+.react-final-marquee-wrapper[data-position="top"] {
+  top: 0px;
+}
+
+.react-final-marquee-wrapper[data-position="center"] {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.react-final-marquee-wrapper[data-position="bottom"] {
+  bottom: 0px;
+}
+
+.react-final-marquee-item {
+  float: left;
+  animation-play-state: var(--play);
+  animation-duration: var(--duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.react-final-marquee:hover .react-final-marquee-item {
+  animation-play-state: var(--pause-on-hover);
 }
 
 @keyframes marqee-rightToLeft {
