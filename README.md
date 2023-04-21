@@ -28,13 +28,25 @@ yarn add react-final-marquee
 ## Usage
 
 ```js
+// App.js
 import Marquee from "react-final-marquee";
 
-<div>
-  <Marquee>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  </Marquee>
-</div>
+const App = () => {
+  return (
+    <div className="App">
+      <Marquee
+        className="marquee-customer-class"
+        direction="leftToRight"
+        speed="30"
+        space="20px"
+        repeat="5"
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.
+      </Marquee>
+    </div>
+  );
+};
 ```
 
 ## Props
@@ -47,7 +59,7 @@ import Marquee from "react-final-marquee";
 | paused       | `Boolean`                     | `false`       | The property specifies whether the animation is running or paused |
 | pauseOnHover | `Boolean`                     | `true`        | Whether to pause the marquee when hovered                         |
 | direction    | `leftToRight` / `rightToLeft` | `rightToLeft` | The direction the marquee is sliding                              |
-| seeed        | `Number` / `String`           | `20`          | Speed calculated as pixels/second                                 |
+| speed        | `Number` / `String`           | `20`          | Speed calculated as pixels/second                                 |
 | space        | `Number` / `String`           | `0`           | Each loop item sapces                                             |
 | repeat       | `Number` / `String`           | `2`           | Number of repeat text                                             |
 | textColor    | `String` / `null`             | `null`        | Text color                                                        |
