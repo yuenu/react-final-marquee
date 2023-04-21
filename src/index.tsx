@@ -55,7 +55,7 @@ interface MarqueeProps {
    * Type: number
    * Default: 2
    */
-  repeat?: number | number;
+  repeat?: number | string;
   /**
    * Text color
    * Type: string
@@ -85,7 +85,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   bgColor = null,
   children,
 }) => {
-  const [duration, setDuration] = useState(2);
+  const [duration, setDuration] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const { width: containerWidth } = useElementSize(containerRef);
@@ -93,7 +93,7 @@ const Marquee: React.FC<MarqueeProps> = ({
 
   useEffect(() => {
     if (marqueeWidth !== undefined && containerWidth !== undefined) {
-      const nubmerSpeed = +speed
+      const nubmerSpeed = +speed;
       setDuration(
         (marqueeWidth < containerWidth
           ? containerWidth / nubmerSpeed
@@ -103,7 +103,9 @@ const Marquee: React.FC<MarqueeProps> = ({
   }, [marqueeWidth, containerWidth]);
 
   const containerStyles: React.CSSProperties = {
-    ["--marquee-container-height" as string]: isNumeric(height) ? `${height}px` : height,
+    ["--marquee-container-height" as string]: isNumeric(height)
+      ? `${height}px`
+      : height,
     ["--marquee-text-color" as string]: textColor,
     ["--marquee-background-color" as string]: bgColor,
   };
@@ -112,7 +114,11 @@ const Marquee: React.FC<MarqueeProps> = ({
     ["--play" as string]: paused ? "paused" : "running",
     ["--duration" as string]: `${duration}s`,
     ["--space" as string]: isNumeric(space) ? `${space}px` : space,
-    ["--pause-on-hover" as string]: pauseOnHover ? "paused" : "running",
+    ["--pause-on-hover" as string]: paused
+      ? "paused"
+      : pauseOnHover
+      ? "paused"
+      : "running",
     ...style,
   };
 
