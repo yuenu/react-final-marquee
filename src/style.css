@@ -2,9 +2,11 @@
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: var(--marquee-container-height);
+  height: 100%;
+  min-height: var(--marquee-container-height);
   background-color: var(--marquee-background-color);
   color: var(----marquee-text-color);
+  white-space: nowrap;
 }
 .react-final-marquee-wrapper {
   position: absolute;
