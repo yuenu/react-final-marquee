@@ -48,7 +48,11 @@ const Demo = () => {
           }}
         >
           <Marquee>
-            <Tag>This is short test message</Tag>
+            <Tag>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s,
+            </Tag>
           </Marquee>
         </div>
         <details>
@@ -56,20 +60,23 @@ const Demo = () => {
           <pre>
             <code>
               {`
-        <div
-        style={{
-          backgroundColor: "#d6ccc2",
-          height: "40px",
-          border: "1px solid #780000",
-          borderRadius: "5px",
-          lineHeight: "40px",
-        }}
-      >
-        <Marquee height="100%">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </Marquee>
-      </div>
+import Marquee from "react-final-marquee";
+
+<div
+  style={{
+    backgroundColor: "#d6ccc2",
+    height: "40px",
+    border: "1px solid #780000",
+    borderRadius: "5px",
+    lineHeight: "40px",
+  }}
+>
+  <Marquee height="100%">
+    Lorem Ipsum is simply dummy text of the printing and typesetting
+    industry. Lorem Ipsum has been the industry's standard dummy text
+    ever since the 1500s,
+  </Marquee>
+</div>
               `}
             </code>
           </pre>
@@ -90,6 +97,9 @@ const CustomerControl = () => {
   const [space, setSpace] = useState<number | string>(0);
   const [repeat, setRepeat] = useState<number | string>(2);
   const [text, setText] = useState("This is short test message");
+  const [bgColor, setBgColor] = useState("#eee");
+  const [textColor, setTextColor] = useState("#333");
+
   const [isChange, setIsChange] = useState(false);
 
   useEffect(() => {
@@ -97,14 +107,19 @@ const CustomerControl = () => {
     setTimeout(() => {
       setIsChange(false);
     }, 0);
-  }, [speed, space, repeat]);
+  }, [speed, space, repeat, text]);
 
   return (
     <section className="control">
       <div className="control-items">
         <label>
           Height :
-          <input type="number" name="height" />
+          <input
+            type="text"
+            name="height"
+            onChange={(e) => setHeight(e.target.value)}
+            defaultValue={height}
+          />
         </label>
         <label>
           Paused (default: false): {String(paused)}
@@ -121,7 +136,7 @@ const CustomerControl = () => {
             className={pauseOnHover ? "active" : ""}
             onClick={() => setPauseOnHover((prev) => !prev)}
           >
-            Paused
+            ture
           </button>
         </label>
         <label>
@@ -146,6 +161,7 @@ const CustomerControl = () => {
             name="speed"
             onChange={(e) => setSpeed(e.target.value)}
             defaultValue={speed}
+            min="0"
           />
         </label>
         <label>
@@ -155,6 +171,7 @@ const CustomerControl = () => {
             name="space"
             onChange={(e) => setSpace(e.target.value)}
             defaultValue={space}
+            min="0"
           />
         </label>
         <label>
@@ -164,6 +181,7 @@ const CustomerControl = () => {
             name="repeat"
             onChange={(e) => setRepeat(e.target.value)}
             defaultValue={repeat}
+            min="0"
           />
         </label>
         <label>
@@ -175,16 +193,37 @@ const CustomerControl = () => {
             defaultValue={text}
           />
         </label>
+        <label>
+          Background color : {String(bgColor)}
+          <input
+            type="text"
+            name="text"
+            onChange={(e) => setBgColor(e.target.value)}
+            defaultValue={bgColor}
+          />
+        </label>
+        <label>
+          Text color : {String(textColor)}
+          <input
+            type="text"
+            name="text"
+            onChange={(e) => setTextColor(e.target.value)}
+            defaultValue={textColor}
+          />
+        </label>
       </div>
       <div className="showcase">
         {isChange ? null : (
           <Marquee
+            height={height}
             paused={paused}
             pauseOnHover={pauseOnHover}
             direction={direction}
             speed={speed}
             space={space}
             repeat={repeat}
+            bgColor={bgColor}
+            textColor={textColor}
           >
             <Tag>{text}</Tag>
           </Marquee>
