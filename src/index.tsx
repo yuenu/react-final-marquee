@@ -93,7 +93,7 @@ const Marquee: React.FC<MarqueeProps> = ({
 
   useEffect(() => {
     if (marqueeWidth !== undefined && containerWidth !== undefined) {
-      const nubmerSpeed = +speed;
+      const nubmerSpeed = +speed ;
       setDuration(
         (marqueeWidth < containerWidth
           ? containerWidth / nubmerSpeed

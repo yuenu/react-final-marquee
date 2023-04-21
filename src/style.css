@@ -5,7 +5,7 @@
   height: 100%;
   min-height: var(--marquee-container-height);
   background-color: var(--marquee-background-color);
-  color: var(----marquee-text-color);
+  color: var(--marquee-text-color);
   white-space: nowrap;
 }
 .react-final-marquee-wrapper {
@@ -41,9 +41,9 @@
 
 .react-final-marquee-wrapper[data-direction="leftToRight"]
   .react-final-marquee-item {
+  float: right;
   padding-left: var(--space);
   animation-name: marqee-leftToRight;
-  float: right;
 }
 
 @keyframes marqee-rightToLeft {
