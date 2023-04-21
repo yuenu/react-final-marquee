@@ -21,7 +21,7 @@ yarn add react-final-marquee
 
 ## Continued development
 
-- [ ] Vertical marquee
+- [X] Vertical marquee
 - [ ] Add test case
 - [ ] Stay at the same speed even when you resize the window
 
@@ -51,17 +51,17 @@ const App = () => {
 
 ## Props
 
-| Prop         | Type                          | Default       | Description                                                       |
-| ------------ | ----------------------------- | ------------- | ----------------------------------------------------------------- |
-| height       | `Number` / `String`           | `30px`        | The height of the container div                                   |
-| style        | `CSSProperties`               | `{}`          | Inline style for the container div                                |
-| className    | `String`                      | `""`          | Class name to style the container div                             |
-| paused       | `Boolean`                     | `false`       | The property specifies whether the animation is running or paused |
-| pauseOnHover | `Boolean`                     | `true`        | Whether to pause the marquee when hovered                         |
-| direction    | `leftToRight` / `rightToLeft` | `rightToLeft` | The direction the marquee is sliding                              |
-| speed        | `Number` / `String`           | `20`          | Speed calculated as pixels/second                                 |
-| space        | `Number` / `String`           | `0`           | Each loop item sapces                                             |
-| repeat       | `Number` / `String`           | `2`           | Number of repeat text                                             |
-| textColor    | `String` / `null`             | `null`        | Text color                                                        |
-| bgColor      | `String` /`null`              | `null`        | Container Background color                                        |
-| position     | `top` /`center` / `bottom`    | `top`         | Marquee position                                                  |
+| Prop         | Type                                                          | Default       | Description                                                       |
+| ------------ | ------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| height       | `Number` / `String`                                           | `30px`        | The height of the container div                                   |
+| style        | `CSSProperties`                                               | `{}`          | Inline style for the container div                                |
+| className    | `String`                                                      | `""`          | Class name to style the container div                             |
+| paused       | `Boolean`                                                     | `false`       | The property specifies whether the animation is running or paused |
+| pauseOnHover | `Boolean`                                                     | `true`        | Whether to pause the marquee when hovered                         |
+| direction    | `leftToRight` / `rightToLeft` / `topToBottom` / `bottomToTop` | `rightToLeft` | The direction the marquee is sliding                              |
+| speed        | `Number` / `String`                                           | `20`          | Speed calculated as pixels/second                                 |
+| space        | `Number` / `String`                                           | `0`           | Each loop item sapces                                             |
+| repeat       | `Number` / `String`                                           | `2`           | Number of repeat text                                             |
+| textColor    | `String` / `null`                                             | `null`        | Text color                                                        |
+| bgColor      | `String` /`null`                                              | `null`        | Container Background color                                        |
+| position     | `start` /`center` / `end`                                     | `start`       | Marquee position                                                  |

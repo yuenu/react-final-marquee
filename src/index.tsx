@@ -29,15 +29,15 @@ interface MarqueeProps {
   /**
    * Whether to pause the marquee when hovered
    * Type: boolean
-   * Default: false
+   * Default: true
    */
   pauseOnHover?: boolean;
   /**
    * The direction the marquee is sliding
-   * Type: "leftToRight" or "rightToLeft" or "topToBottom" or "bottomToTop"
-   * Default: "leftToRight"
+   * Type: "leftToRight" | "rightToLeft" | "topToBottom" | "bottomToTop"
+   * Default: "rightToLeft"
    */
-  direction?: "leftToRight" | "rightToLeft";
+  direction?: "leftToRight" | "rightToLeft" | "topToBottom" | "bottomToTop";
   /**
    * Animation Duration
    * Type: number
@@ -70,10 +70,10 @@ interface MarqueeProps {
   bgColor?: string | null;
   /**
    * Container Background color
-   * Type: string
-   * Default: null
+   * Type: "start" | "center" | "end"
+   * Default: "top"
    */
-  position?: "top" | "center" | "bottom";
+  position?: "start" | "center" | "end";
   children?: React.ReactNode;
 }
 
@@ -89,7 +89,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   repeat = 2,
   textColor = null,
   bgColor = null,
-  position = "top",
+  position = "start",
   children,
 }) => {
   const [duration, setDuration] = useState(0);

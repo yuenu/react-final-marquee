@@ -34,11 +34,11 @@ const Tag = ({ children }: TagType) => {
   );
 };
 
-const Demo = () => {
+const Demo1 = () => {
   return (
     <section>
       <div>
-        <h4 className="demo-title default">Default settings</h4>
+        <h4 className="demo-title default">Default settings - Horizontal</h4>
         <div
           style={{
             backgroundColor: "#d6ccc2",
@@ -86,20 +86,79 @@ import Marquee from "react-final-marquee";
   );
 };
 
+const Demo2 = () => {
+  return (
+    <section>
+      <div>
+        <h4 className="demo-title default">Vertical marquee</h4>
+        <div
+          style={{
+            backgroundColor: "#d6ccc2",
+            height: "200px",
+            border: "1px solid #780000",
+          }}
+        >
+          <Marquee
+            direction="topToBottom"
+            position="center"
+            space="1rem"
+            repeat="7"
+            speed="50"
+          >
+            <Tag>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </Tag>
+          </Marquee>
+        </div>
+        <details>
+          <summary>Code</summary>
+          <pre>
+            <code>{`
+import Marquee from "react-final-marquee";
+
+<div
+  style={{
+    backgroundColor: "#d6ccc2",
+    height: "300px",
+    border: "1px solid #780000",
+  }}
+>
+  <Marquee
+    direction="topToBottom"
+    position="center"
+    space="1rem"
+    repeat="7"
+    speed="50"
+  >
+    <Tag>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry.
+    </Tag>
+  </Marquee>
+</div>
+            `}</code>
+          </pre>
+        </details>
+      </div>
+    </section>
+  );
+};
+
 const CustomerControl = () => {
   const [height, setHeight] = useState("30px");
   const [paused, setPaused] = useState(false);
   const [pauseOnHover, setPauseOnHover] = useState(true);
-  const [direction, setDirection] = useState<"rightToLeft" | "leftToRight">(
-    "rightToLeft"
-  );
+  const [direction, setDirection] = useState<
+    "rightToLeft" | "leftToRight" | "bottomToTop" | "topToBottom"
+  >("rightToLeft");
   const [speed, setSpeed] = useState<number | string>(20);
   const [space, setSpace] = useState<number | string>(0);
   const [repeat, setRepeat] = useState<number | string>(2);
   const [text, setText] = useState("This is short test message");
   const [bgColor, setBgColor] = useState("#eee");
   const [textColor, setTextColor] = useState("#333");
-  const [position, setPosition] = useState<"top" | "center" | "bottom">("top");
+  const [position, setPosition] = useState<"start" | "center" | "end">("start");
 
   const [isChange, setIsChange] = useState(false);
 
@@ -142,18 +201,25 @@ const CustomerControl = () => {
         </label>
         <label>
           Direction (default: "rightToLeft"): {direction}
-          <button
-            className={direction === "rightToLeft" ? "active" : ""}
-            onClick={() => setDirection("rightToLeft")}
-          >
-            rightToLeft
-          </button>
-          <button
-            className={direction === "leftToRight" ? "active" : ""}
-            onClick={() => setDirection("leftToRight")}
-          >
-            leftToRight
-          </button>
+          {["rightToLeft", "leftToRight", "bottomToTop", "topToBottom"].map(
+            (item) => (
+              <button
+                key={item}
+                className={direction === item ? "active" : ""}
+                onClick={() =>
+                  setDirection(
+                    item as
+                      | "rightToLeft"
+                      | "leftToRight"
+                      | "bottomToTop"
+                      | "topToBottom"
+                  )
+                }
+              >
+                {item}
+              </button>
+            )
+          )}
         </label>
         <label>
           Speed (default: 20) : {String(speed)}
@@ -214,24 +280,14 @@ const CustomerControl = () => {
         </label>
         <label>
           Position (default: 'top'): {String(position)}
-          <button
-            className={position === "top" ? "active" : ""}
-            onClick={() => setPosition("top")}
-          >
-            top
-          </button>
-          <button
-            className={position === "center" ? "active" : ""}
-            onClick={() => setPosition("center")}
-          >
-            center
-          </button>
-          <button
-            className={position === "bottom" ? "active" : ""}
-            onClick={() => setPosition("bottom")}
-          >
-            bottom
-          </button>
+          {["start", "center", "end"].map((item) => (
+            <button
+              className={position === item ? "active" : ""}
+              onClick={() => setPosition(item as "start" | "center" | "end")}
+            >
+              {item}
+            </button>
+          ))}
         </label>
       </div>
       <div className="showcase">
@@ -262,7 +318,8 @@ const App = () => {
       <Header />
       <div className="container">
         <h3>Demo</h3>
-        <Demo />
+        <Demo1 />
+        <Demo2 />
         <h3>Customer Contorl</h3>
         <CustomerControl />
       </div>
