@@ -95,12 +95,27 @@ const Marquee: React.FC<MarqueeProps> = ({
   const [duration, setDuration] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
-  const { width: containerWidth } = useElementSize(containerRef);
-  const { width: marqueeWidth } = useElementSize(marqueeRef);
+  const { width: containerWidth, height: containerHeight } =
+    useElementSize(containerRef);
+  const { width: marqueeWidth, height: marqueeHeight } =
+    useElementSize(marqueeRef);
 
   useEffect(() => {
+    const isVertical = ["topToBottom", "bottomToTop"].includes(direction);
+    const nubmerSpeed = +speed;
+
+    if (isVertical) {
+      if (marqueeHeight !== undefined && containerHeight !== undefined) {
+        setDuration(
+          (marqueeHeight < containerHeight
+            ? containerHeight / nubmerSpeed
+            : marqueeHeight / nubmerSpeed) * 0.2
+        );
+      }
+      return;
+    }
+
     if (marqueeWidth !== undefined && containerWidth !== undefined) {
-      const nubmerSpeed = +speed;
       setDuration(
         (marqueeWidth < containerWidth
           ? containerWidth / nubmerSpeed
