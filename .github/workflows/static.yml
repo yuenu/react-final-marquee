@@ -34,7 +34,7 @@ jobs:
       - name: install node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: "14.x"
       - name: install dependencies
         run: npm install && npm run build:demo
       - name: Setup Pages
@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: './demo/dist'
+          path: "./demo/dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2

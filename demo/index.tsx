@@ -107,7 +107,7 @@ const Demo3 = () => {
   return (
     <section className="image">
       <div>
-        <h4 className="demo-title default">With Image</h4>
+        <h4 className="demo-title default">With Image2</h4>
         <div
           style={{
             backgroundColor: "#E9E2DC",
@@ -118,12 +118,12 @@ const Demo3 = () => {
         >
           <ReactFinalMarquee space="5rem" height="100%" speed="12">
             <div style={{ display: "flex", gap: "5rem", height: "100%" }}>
-              <img src="/images/img1.webp" alt="" />
-              <img src="/images/img2.webp" alt="" />
-              <img src="/images/img3.webp" alt="" />
-              <img src="/images/img4.webp" alt="" />
-              <img src="/images/img5.webp" alt="" />
-              <img src="/images/img6.webp" alt="" />
+              <img src="./images/img1.webp" alt="" />
+              <img src="./images/img2.webp" alt="" />
+              <img src="./images/img3.webp" alt="" />
+              <img src="./images/img4.webp" alt="" />
+              <img src="./images/img5.webp" alt="" />
+              <img src="./images/img6.webp" alt="" />
             </div>
           </ReactFinalMarquee>
         </div>
