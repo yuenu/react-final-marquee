@@ -40,6 +40,8 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
     "rollup-plugin-sass": "^1.12.19",
     "rollup-plugin-typescript2": "^0.34.1",
     "tslib": "^2.5.0",
@@ -62,5 +64,18 @@
     "ticker",
     "horizontal-scrolling-carousels",
     "react-marquee"
-  ]
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ]
+  }
 }
