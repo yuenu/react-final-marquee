@@ -28,7 +28,7 @@
   },
   "scripts": {
     "dev": "vite --config vite.demo.config.ts",
-    "build:demo": "vite build --config vite.demo.config.ts && gh-pages -d demo/dist",
+    "build:demo": "vite build --config vite.demo.config.ts",
     "build": "tsc && vite build"
   },
   "dependencies": {
