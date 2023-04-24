@@ -18,6 +18,7 @@ const Marquee = forwardRef<HTMLElement, MarqueeProps>((_props, _ref) => {
     bgColor = null,
     position = "start",
     children,
+    ...rest
   } = _props;
   const [duration, setDuration] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -79,6 +80,7 @@ const Marquee = forwardRef<HTMLElement, MarqueeProps>((_props, _ref) => {
         assignRef(_ref, element);
       }}
       style={containerStyles}
+      {...rest}
     >
       <div
         className="react-final-marquee-wrapper"
