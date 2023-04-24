@@ -107,7 +107,7 @@ const Demo3 = () => {
   return (
     <section className="image">
       <div>
-        <h4 className="demo-title default">With Image2</h4>
+        <h4 className="demo-title default">With Image</h4>
         <div
           style={{
             backgroundColor: "#E9E2DC",
@@ -131,6 +131,78 @@ const Demo3 = () => {
           <summary>Code</summary>
           <pre>
             <code>{demoCode3}</code>
+          </pre>
+        </details>
+      </div>
+    </section>
+  );
+};
+
+const Demo4 = () => {
+  const [fakeData, setFakeData] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchData = async () => {
+    return await new Promise((reslove) => {
+      setTimeout(() => {
+        const dataList = [
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
+          "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here,",
+          "content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,",
+          "and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        ];
+        reslove(dataList[Math.floor(Math.random() * dataList.length)]);
+      }, 1000);
+    });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchData().then((res) => {
+      setFakeData(res as string);
+      setIsLoading(false);
+    });
+  }, []);
+
+  return (
+    <section className="normal">
+      <div>
+        <h4 className="demo-title default">
+          Aysnc Data{" "}
+          <button
+            className={`fetch-btn ${isLoading ? "loading" : ""}`}
+            type="button"
+            onClick={() => {
+              setIsLoading(true);
+              setFakeData("");
+              fetchData().then((res) => {
+                setFakeData(res as string);
+                setIsLoading(false);
+              });
+            }}
+          >
+            Fetch Data
+          </button>
+        </h4>
+        <div
+          style={{
+            backgroundColor: "#E9E2DC",
+            height: "40px",
+            border: "1px solid #780000",
+            lineHeight: "40px",
+          }}
+        >
+          <ReactFinalMarquee space="0.4rem">
+            {fakeData ? <Tag>{fakeData}</Tag> : null}
+          </ReactFinalMarquee>
+        </div>
+        <details>
+          <summary>Code</summary>
+          <pre>
+            <code>{demoCode1}</code>
           </pre>
         </details>
       </div>
@@ -193,7 +265,7 @@ const CustomerControl = () => {
           </button>
         </label>
         <label>
-          Direction (default: "rightToLeft"): {direction}
+          Direction (default: "rightToLeft"):
           {["rightToLeft", "leftToRight", "bottomToTop", "topToBottom"].map(
             (item) => (
               <button
@@ -315,6 +387,7 @@ const App = () => {
         <Demo1 />
         <Demo2 />
         <Demo3 />
+        <Demo4 />
         <h3>Customer Contorl</h3>
         <CustomerControl />
       </div>

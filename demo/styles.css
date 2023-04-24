@@ -1,6 +1,7 @@
 :root {
   --color-link: #118bee;
   --hover-brightness: 1.2;
+  --disabled-brightness: 1.5;
 }
 
 *,
@@ -123,6 +124,19 @@ h3 {
 .control-items button.active {
   background-color: var(--color-link);
   color: #fff;
+}
+
+.fetch-btn {
+  background-color: var(--color-link);
+  color: #fff;
+  border: transparent;
+  padding: 5px;
+}
+
+.fetch-btn.loading {
+  filter: brightness(var(--disabled-brightness));
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 @media (max-width: 476px) {
