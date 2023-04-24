@@ -22,14 +22,17 @@ export function useResize(callback: () => void): void {
   }, []);
 }
 
-export function useElementSize(element: React.RefObject<HTMLDivElement>): {
+export function useElementSize(
+  element: React.RefObject<HTMLDivElement>,
+  childrenContent?: React.ReactNode
+): {
   width: number | undefined;
   height: number | undefined;
 } {
   const [width, setWidth] = useState<number>();
   const [height, setHeight] = useState<number>();
 
-  useResize(() => {
+  const getElementSize = () => {
     setWidth((previousWidth) => {
       const nextWidth = element.current?.getBoundingClientRect().width;
       return previousWidth !== nextWidth ? nextWidth : previousWidth;
@@ -38,8 +41,15 @@ export function useElementSize(element: React.RefObject<HTMLDivElement>): {
       const nextHeight = element.current?.getBoundingClientRect().height;
       return previousHeight !== nextHeight ? nextHeight : previousHeight;
     });
+  };
+
+  useResize(() => {
+    getElementSize();
   });
+
+  useEffect(() => {
+    getElementSize();
+  }, [childrenContent]);
 
   return { width, height };
 }
-

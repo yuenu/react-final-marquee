@@ -11,7 +11,7 @@ const Marquee = forwardRef<HTMLElement, MarqueeProps>((_props, _ref) => {
     paused = false,
     pauseOnHover = true,
     direction = "rightToLeft",
-    speed = 20,
+    speed = 90,
     space = 0,
     repeat = 2,
     textColor = null,
@@ -20,13 +20,18 @@ const Marquee = forwardRef<HTMLElement, MarqueeProps>((_props, _ref) => {
     children,
     ...rest
   } = _props;
+
   const [duration, setDuration] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
-  const { width: containerWidth, height: containerHeight } =
-    useElementSize(containerRef);
-  const { width: marqueeWidth, height: marqueeHeight } =
-    useElementSize(marqueeRef);
+  const { width: containerWidth, height: containerHeight } = useElementSize(
+    containerRef,
+    children
+  );
+  const { width: marqueeWidth, height: marqueeHeight } = useElementSize(
+    marqueeRef,
+    children
+  );
 
   useEffect(() => {
     const isVertical = ["topToBottom", "bottomToTop"].includes(direction);
@@ -35,9 +40,9 @@ const Marquee = forwardRef<HTMLElement, MarqueeProps>((_props, _ref) => {
     if (isVertical) {
       if (marqueeHeight !== undefined && containerHeight !== undefined) {
         setDuration(
-          (marqueeHeight < containerHeight
+          marqueeHeight < containerHeight
             ? containerHeight / nubmerSpeed
-            : marqueeHeight / nubmerSpeed) * 0.2
+            : marqueeHeight / nubmerSpeed
         );
       }
       return;
@@ -45,12 +50,12 @@ const Marquee = forwardRef<HTMLElement, MarqueeProps>((_props, _ref) => {
 
     if (marqueeWidth !== undefined && containerWidth !== undefined) {
       setDuration(
-        (marqueeWidth < containerWidth
+        marqueeWidth < containerWidth
           ? containerWidth / nubmerSpeed
-          : marqueeWidth / nubmerSpeed) * 0.2
+          : marqueeWidth / nubmerSpeed
       );
     }
-  }, [marqueeWidth, containerWidth]);
+  }, [marqueeWidth, containerWidth, marqueeHeight, containerHeight]);
 
   const containerStyles: React.CSSProperties = {
     ["--marquee-container-height" as string]: isNumeric(height)
