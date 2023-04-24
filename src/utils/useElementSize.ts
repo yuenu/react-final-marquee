@@ -43,11 +43,3 @@ export function useElementSize(element: React.RefObject<HTMLDivElement>): {
   return { width, height };
 }
 
-export function isNumeric(value: string | number) {
-  return /^-?\d+$/.test(value + '');
-}
-
-// export function is(value: unknown) {
-//   if (typeof value === "number") return value;
-//   if (typeof value === "string" && isNumeric(value)) return +value;
-// }
