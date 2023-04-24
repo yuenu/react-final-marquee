@@ -3,5 +3,5 @@ const { defineConfig } = require("vite");
 
 module.exports = defineConfig({
   root: path.resolve(__dirname, "./demo"),
-  base: "./",
+  publicDir: path.resolve(__dirname, "./demo/public"),
 });

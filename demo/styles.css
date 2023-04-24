@@ -77,6 +77,7 @@ h3 {
 
 .tag-container {
   display: flex;
+  align-items: center;
 }
 
 .tag-start,
@@ -100,6 +101,7 @@ h3 {
 .control-items label {
   padding: 5px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5px;
 }

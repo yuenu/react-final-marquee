@@ -1,6 +1,6 @@
 # React final marquee
 
-Easy way to use marquee text for react
+Easy way to use marquee for react
 
 [![size](https://img.shields.io/bundlephobia/minzip/react-final-marquee.svg)](https://github.com/yuenu/react-final-marquee)
 [![dm](https://img.shields.io/npm/dm/react-final-marquee.svg)](https://github.com/yuenu/react-final-marquee)
@@ -19,24 +19,35 @@ yarn add react-final-marquee
 
 [See Here](https://yuenu.github.io/react-final-marquee/)
 
-## Continued development
-
-- [X] Vertical marquee
-- [ ] Add test case
-- [ ] Stay at the same speed even when you resize the window
-
 ## Usage
 
 ```js
 // App.js
-import Marquee from "react-final-marquee";
+import ReactFinalMarquee from "react-final-marquee";
 
-const App = () => {
+const VertialMarquee = () => {
   return (
     <div className="App">
       <Marquee
         className="marquee-customer-class"
         direction="leftToRight"
+        speed="30"
+        space="20px"
+        repeat="5"
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.
+      </Marquee>
+    </div>
+  );
+};
+
+const HorizontalMqrquee = () => {
+  return (
+    <div className="App">
+      <Marquee
+        className="marquee-customer-class"
+        direction="topToBottom"
         speed="30"
         space="20px"
         repeat="5"

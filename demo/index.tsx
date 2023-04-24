@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import Marquee from "../src";
+import ReactFinalMarquee from "../src";
+import { demoCode1, demoCode2, demoCode3 } from "./data";
 import "./styles.css";
 
 const Header = () => {
@@ -36,49 +37,29 @@ const Tag = ({ children }: TagType) => {
 
 const Demo1 = () => {
   return (
-    <section>
+    <section className="normal">
       <div>
         <h4 className="demo-title default">Default settings - Horizontal</h4>
         <div
           style={{
-            backgroundColor: "#d6ccc2",
+            backgroundColor: "#E9E2DC",
             height: "40px",
             border: "1px solid #780000",
             lineHeight: "40px",
           }}
         >
-          <Marquee>
+          <ReactFinalMarquee>
             <Tag>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
             </Tag>
-          </Marquee>
+          </ReactFinalMarquee>
         </div>
         <details>
           <summary>Code</summary>
           <pre>
-            <code>
-              {`
-import Marquee from "react-final-marquee";
-
-<div
-  style={{
-    backgroundColor: "#d6ccc2",
-    height: "40px",
-    border: "1px solid #780000",
-    borderRadius: "5px",
-    lineHeight: "40px",
-  }}
->
-  <Marquee height="100%">
-    Lorem Ipsum is simply dummy text of the printing and typesetting
-    industry. Lorem Ipsum has been the industry's standard dummy text
-    ever since the 1500s,
-  </Marquee>
-</div>
-              `}
-            </code>
+            <code>{demoCode1}</code>
           </pre>
         </details>
       </div>
@@ -88,17 +69,17 @@ import Marquee from "react-final-marquee";
 
 const Demo2 = () => {
   return (
-    <section>
+    <section className="normal">
       <div>
         <h4 className="demo-title default">Vertical marquee</h4>
         <div
           style={{
-            backgroundColor: "#d6ccc2",
+            backgroundColor: "#E9E2DC",
             height: "200px",
             border: "1px solid #780000",
           }}
         >
-          <Marquee
+          <ReactFinalMarquee
             direction="topToBottom"
             position="center"
             space="1rem"
@@ -109,35 +90,47 @@ const Demo2 = () => {
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </Tag>
-          </Marquee>
+          </ReactFinalMarquee>
         </div>
         <details>
           <summary>Code</summary>
           <pre>
-            <code>{`
-import Marquee from "react-final-marquee";
+            <code>{demoCode2}</code>
+          </pre>
+        </details>
+      </div>
+    </section>
+  );
+};
 
-<div
-  style={{
-    backgroundColor: "#d6ccc2",
-    height: "300px",
-    border: "1px solid #780000",
-  }}
->
-  <Marquee
-    direction="topToBottom"
-    position="center"
-    space="1rem"
-    repeat="7"
-    speed="50"
-  >
-    <Tag>
-      Lorem Ipsum is simply dummy text of the printing and typesetting
-      industry.
-    </Tag>
-  </Marquee>
-</div>
-            `}</code>
+const Demo3 = () => {
+  return (
+    <section className="image">
+      <div>
+        <h4 className="demo-title default">With Image</h4>
+        <div
+          style={{
+            backgroundColor: "#E9E2DC",
+            height: "200px",
+            border: "1px solid #780000",
+            lineHeight: "40px",
+          }}
+        >
+          <ReactFinalMarquee space="5rem" height="100%" speed="12">
+            <div style={{ display: "flex", gap: "5rem", height: "100%" }}>
+              <img src="/images/img1.webp" alt="" />
+              <img src="/images/img2.webp" alt="" />
+              <img src="/images/img3.webp" alt="" />
+              <img src="/images/img4.webp" alt="" />
+              <img src="/images/img5.webp" alt="" />
+              <img src="/images/img6.webp" alt="" />
+            </div>
+          </ReactFinalMarquee>
+        </div>
+        <details>
+          <summary>Code</summary>
+          <pre>
+            <code>{demoCode3}</code>
           </pre>
         </details>
       </div>
@@ -170,7 +163,7 @@ const CustomerControl = () => {
   }, [speed, space, repeat, text]);
 
   return (
-    <section className="control">
+    <section className="control normal">
       <div className="control-items">
         <label>
           Height :
@@ -282,6 +275,7 @@ const CustomerControl = () => {
           Position (default: 'top'): {String(position)}
           {["start", "center", "end"].map((item) => (
             <button
+              key={item}
               className={position === item ? "active" : ""}
               onClick={() => setPosition(item as "start" | "center" | "end")}
             >
@@ -292,7 +286,7 @@ const CustomerControl = () => {
       </div>
       <div className="showcase">
         {isChange ? null : (
-          <Marquee
+          <ReactFinalMarquee
             height={height}
             paused={paused}
             pauseOnHover={pauseOnHover}
@@ -305,7 +299,7 @@ const CustomerControl = () => {
             position={position}
           >
             <Tag>{text}</Tag>
-          </Marquee>
+          </ReactFinalMarquee>
         )}
       </div>
     </section>
@@ -320,6 +314,7 @@ const App = () => {
         <h3>Demo</h3>
         <Demo1 />
         <Demo2 />
+        <Demo3 />
         <h3>Customer Contorl</h3>
         <CustomerControl />
       </div>
