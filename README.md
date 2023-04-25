@@ -28,7 +28,7 @@ import ReactFinalMarquee from "react-final-marquee";
 const VertialMarquee = () => {
   return (
     <div className="App">
-      <Marquee
+      <ReactFinalMarquee
         className="marquee-customer-class"
         direction="leftToRight"
         speed="30"
@@ -37,7 +37,7 @@ const VertialMarquee = () => {
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry.
-      </Marquee>
+      </ReactFinalMarquee>
     </div>
   );
 };
@@ -45,7 +45,7 @@ const VertialMarquee = () => {
 const HorizontalMqrquee = () => {
   return (
     <div className="App">
-      <Marquee
+      <ReactFinalMarquee
         className="marquee-customer-class"
         direction="topToBottom"
         speed="30"
@@ -54,7 +54,7 @@ const HorizontalMqrquee = () => {
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry.
-      </Marquee>
+      </ReactFinalMarquee>
     </div>
   );
 };
