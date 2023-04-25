@@ -96,3 +96,36 @@ import ReactFinalMarquee from "react-final-marquee";
   </ReactFinalMarquee>
 </div>
 `;
+
+export const demoCode4 = `
+<div>
+<h4 className="demo-title default">
+  Aysnc Data{" "}
+  <button
+    className={"fetch-btn" + isLoading ? 'loading' : '' "}
+    type="button"
+    onClick={() => {
+      setIsLoading(true);
+      setFakeData("");
+      fetchData().then((res) => {
+        setFakeData(res as string);
+        setIsLoading(false);
+      });
+    }}
+  >
+    Fetch Data
+  </button>
+</h4>
+<div
+  style={{
+    backgroundColor: "#E9E2DC",
+    height: "40px",
+    border: "1px solid #780000",
+    lineHeight: "40px",
+  }}
+>
+  <ReactFinalMarquee space="0.4rem">
+    {fakeData ? <Tag>{fakeData}</Tag> : null}
+  </ReactFinalMarquee>
+</div>
+`;

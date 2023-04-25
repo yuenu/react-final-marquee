@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import ReactFinalMarquee from "../src";
-import { demoCode1, demoCode2, demoCode3 } from "./data";
+import { demoCode1, demoCode2, demoCode3, demoCode4 } from "./data";
 import "./styles.css";
 
 const Header = () => {
@@ -202,7 +202,7 @@ const Demo4 = () => {
         <details>
           <summary>Code</summary>
           <pre>
-            <code>{demoCode1}</code>
+            <code>{demoCode4}</code>
           </pre>
         </details>
       </div>
