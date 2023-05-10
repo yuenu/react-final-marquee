@@ -46,16 +46,22 @@ export type MarqueeProps = EP<
     pauseOnHover?: boolean;
     /**
      * The direction the marquee is sliding
-     * Type: "leftToRight" | "rightToLeft" | "topToBottom" | "bottomToTop"
-     * Default: "rightToLeft"
+     * Type: "toRight" | "toLeft" | "toBottom" | "toTop"
+     * Default: "toLeft"
      */
-    direction?: "leftToRight" | "rightToLeft" | "topToBottom" | "bottomToTop";
+    direction?: "toRight" | "toLeft" | "toBottom" | "toTop";
     /**
-     * Animation Duration
+     * Time to complete a marquee
      * Type: number
      * Default: 20
      */
-    speed?: number | string;
+    duration?: number | string;
+    /**
+     * Time to marquee animation delay
+     * Type: number
+     * Default: 20
+     */
+    delay?: number | string;
     /**
      * Each loop item sapces
      * Type: number

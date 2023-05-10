@@ -56,12 +56,6 @@ const Demo1 = () => {
             </Tag>
           </ReactFinalMarquee>
         </div>
-        <details>
-          <summary>Code</summary>
-          <pre>
-            <code>{demoCode1}</code>
-          </pre>
-        </details>
       </div>
     </section>
   );
@@ -80,11 +74,11 @@ const Demo2 = () => {
           }}
         >
           <ReactFinalMarquee
-            direction="topToBottom"
+            direction="toBottom"
             position="center"
             space="1rem"
-            repeat="7"
-            speed="50"
+            repeat="20"
+            duration="1"
           >
             <Tag>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -116,7 +110,7 @@ const Demo3 = () => {
             lineHeight: "40px",
           }}
         >
-          <ReactFinalMarquee space="5rem" height="100%" speed="12">
+          <ReactFinalMarquee space="5rem" height="100%">
             <div style={{ display: "flex", gap: "5rem", height: "100%" }}>
               <img src="./images/img1.webp" alt="" />
               <img src="./images/img2.webp" alt="" />
@@ -127,12 +121,6 @@ const Demo3 = () => {
             </div>
           </ReactFinalMarquee>
         </div>
-        <details>
-          <summary>Code</summary>
-          <pre>
-            <code>{demoCode3}</code>
-          </pre>
-        </details>
       </div>
     </section>
   );
@@ -175,6 +163,7 @@ const Demo4 = () => {
           <button
             className={`fetch-btn ${isLoading ? "loading" : ""}`}
             type="button"
+            disabled={isLoading}
             onClick={() => {
               setIsLoading(true);
               setFakeData("");
@@ -196,15 +185,9 @@ const Demo4 = () => {
           }}
         >
           <ReactFinalMarquee space="0.4rem">
-            {fakeData ? <Tag>{fakeData}</Tag> : null}
+            {fakeData ? <Tag>{fakeData}</Tag> : 'Loading...'}
           </ReactFinalMarquee>
         </div>
-        <details>
-          <summary>Code</summary>
-          <pre>
-            <code>{demoCode4}</code>
-          </pre>
-        </details>
       </div>
     </section>
   );
@@ -215,9 +198,9 @@ const CustomerControl = () => {
   const [paused, setPaused] = useState(false);
   const [pauseOnHover, setPauseOnHover] = useState(true);
   const [direction, setDirection] = useState<
-    "rightToLeft" | "leftToRight" | "bottomToTop" | "topToBottom"
-  >("rightToLeft");
-  const [speed, setSpeed] = useState<number | string>(20);
+    "toLeft" | "toRight" | "toTop" | "toBottom"
+  >("toLeft");
+  const [duration, setDuration] = useState<number | string>(20);
   const [space, setSpace] = useState<number | string>(0);
   const [repeat, setRepeat] = useState<number | string>(2);
   const [text, setText] = useState("This is short test message");
@@ -232,7 +215,7 @@ const CustomerControl = () => {
     setTimeout(() => {
       setIsChange(false);
     }, 0);
-  }, [speed, space, repeat, text]);
+  }, [duration, space, repeat, text]);
 
   return (
     <section className="control normal">
@@ -274,10 +257,10 @@ const CustomerControl = () => {
                 onClick={() =>
                   setDirection(
                     item as
-                      | "rightToLeft"
-                      | "leftToRight"
-                      | "bottomToTop"
-                      | "topToBottom"
+                      | "toLeft"
+                      | "toRight"
+                      | "toTop"
+                      | "toBottom"
                   )
                 }
               >
@@ -287,12 +270,12 @@ const CustomerControl = () => {
           )}
         </label>
         <label>
-          Speed (default: 20) : {String(speed)}
+          Duration (default: 10) : {String(duration)}
           <input
             type="number"
-            name="speed"
-            onChange={(e) => setSpeed(e.target.value)}
-            defaultValue={speed}
+            name="duration"
+            onChange={(e) => setDuration(e.target.value)}
+            defaultValue={duration}
             min="0"
           />
         </label>
@@ -363,7 +346,7 @@ const CustomerControl = () => {
             paused={paused}
             pauseOnHover={pauseOnHover}
             direction={direction}
-            speed={speed}
+            duration={duration}
             space={space}
             repeat={repeat}
             bgColor={bgColor}

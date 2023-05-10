@@ -30,7 +30,7 @@ const VertialMarquee = () => {
     <div className="App">
       <ReactFinalMarquee
         className="marquee-customer-class"
-        direction="leftToRight"
+        direction="toRight"
         speed="30"
         space="20px"
         repeat="5"
@@ -47,7 +47,7 @@ const HorizontalMqrquee = () => {
     <div className="App">
       <ReactFinalMarquee
         className="marquee-customer-class"
-        direction="topToBottom"
+        direction="toBottom"
         speed="30"
         space="20px"
         repeat="5"
@@ -62,17 +62,17 @@ const HorizontalMqrquee = () => {
 
 ## Props
 
-| Prop         | Type                                                          | Default       | Description                                                       |
-| ------------ | ------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
-| height       | `Number` / `String`                                           | `30px`        | The height of the container div                                   |
-| style        | `CSSProperties`                                               | `{}`          | Inline style for the container div                                |
-| className    | `String`                                                      | `""`          | Class name to style the container div                             |
-| paused       | `Boolean`                                                     | `false`       | The property specifies whether the animation is running or paused |
-| pauseOnHover | `Boolean`                                                     | `true`        | Whether to pause the marquee when hovered                         |
-| direction    | `leftToRight` / `rightToLeft` / `topToBottom` / `bottomToTop` | `rightToLeft` | The direction the marquee is sliding                              |
-| speed        | `Number` / `String`                                           | `20`          | Speed calculated as pixels/second                                 |
-| space        | `Number` / `String`                                           | `0`           | Each loop item sapces                                             |
-| repeat       | `Number` / `String`                                           | `2`           | Number of repeat text                                             |
-| textColor    | `String` / `null`                                             | `null`        | Text color                                                        |
-| bgColor      | `String` /`null`                                              | `null`        | Container Background color                                        |
-| position     | `start` /`center` / `end`                                     | `start`       | Marquee position                                                  |
+| Prop         | Type                                        | Default  | Description                                                       |
+| ------------ | ------------------------------------------- | -------- | ----------------------------------------------------------------- |
+| height       | `Number` / `String`                         | `30px`   | The height of the container div                                   |
+| style        | `CSSProperties`                             | `{}`     | Inline style for the container div                                |
+| className    | `String`                                    | `""`     | Class name to style the container div                             |
+| paused       | `Boolean`                                   | `false`  | The property specifies whether the animation is running or paused |
+| pauseOnHover | `Boolean`                                   | `true`   | Whether to pause the marquee when hovered                         |
+| direction    | `toRight` / `toLeft` / `toBottom` / `toTop` | `toLeft` | The direction the marquee is sliding                              |
+| duration     | `Number` / `String`                         | `10`     | Time to complete a marquee                                        |
+| space        | `Number` / `String`                         | `0`      | Each loop item sapces                                             |
+| repeat       | `Number` / `String`                         | `2`      | Number of repeat text                                             |
+| textColor    | `String` / `null`                           | `null`   | Text color                                                        |
+| bgColor      | `String` /`null`                            | `null`   | Container Background color                                        |
+| position     | `start` /`center` / `end`                   | `start`  | Marquee position                                                  |
