@@ -79,6 +79,7 @@ h3 {
 .tag-container {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .tag-start,

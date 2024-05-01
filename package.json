@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/yuenu/react-final-marquee/issues"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "files": [
     "dist",
     "LICENSE",
@@ -32,8 +32,8 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "react": ">= 16.8.0 || 18.0.0",
-    "react-dom": ">= 16.8.0 || 18.0.0"
+    "react": ">= 16.8.0 || 18.3.1",
+    "react-dom": ">= 16.8.0 || 18.3.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
@@ -51,8 +51,8 @@
     "vite-plugin-dts": "^2.3.0"
   },
   "peerDependencies": {
-    "react": ">= 16.8.0 || 18.0.0",
-    "react-dom": ">= 16.8.0 || 18.0.0"
+    "react": ">= 16.8.0 || 18.3.1",
+    "react-dom": ">= 16.8.0 || 18.3.1"
   },
   "keywords": [
     "react",
